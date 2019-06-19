@@ -12939,11 +12939,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tony\\source\\repos\\ApiProducts\\ApiProducts.csproj",
+      "projectUniqueName": "C:\\Users\\Tony\\source\\repos\\GitHub\\ApiProducts\\ApiProducts\\ApiProducts.csproj",
       "projectName": "ApiProducts",
-      "projectPath": "C:\\Users\\Tony\\source\\repos\\ApiProducts\\ApiProducts.csproj",
+      "projectPath": "C:\\Users\\Tony\\source\\repos\\GitHub\\ApiProducts\\ApiProducts\\ApiProducts.csproj",
       "packagesPath": "C:\\Users\\Tony\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tony\\source\\repos\\ApiProducts\\obj\\",
+      "outputPath": "C:\\Users\\Tony\\source\\repos\\GitHub\\ApiProducts\\ApiProducts\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
