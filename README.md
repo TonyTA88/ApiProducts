@@ -5,10 +5,12 @@ Visual Studio 2019 or Visual Code
 
 DataBase used SqlServerExpress
 
-For Authentication used jwt token.
+-For Authentication used jwt token.
 
-Postman files included in the postman folder:
+-Postman files included in the postman folder:
 
-Use the create or login endpoint to generate a token then you can add, remove, delete, buy, search, get the products order by likes or name.
+  Use the create or login endpoint to generate a token then you can add, remove, delete, buy, search, get products order by likes or name.
 
-You can find database dump in the Databasedump folder 
+-You can find database script in the Databasedump folder.
+
+-To change the connection string go to the appsettings.json and modify the DefaultConnection property
