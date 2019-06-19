@@ -13,7 +13,7 @@ namespace ApiProducts.Controllers
 
     [Produces("application/json")]
     [Route("api/ProductsPagination")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [AllowAnonymous]
     public class PaginationController : Controller
     {
         private readonly ProductContext context;
@@ -30,8 +30,6 @@ namespace ApiProducts.Controllers
 
             //var Product = context.Products;
             List<Products> Prod = new List<Products>();
-
-                
 
             if (String.IsNullOrEmpty(ProductPaginationParam.order))
             {

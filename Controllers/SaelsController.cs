@@ -31,6 +31,21 @@ namespace ApiProducts.Controllers
                 Sael.Purchased = DateTime.UtcNow;
                 context.SaelsT.Add(Sael);
                 context.SaveChanges();
+              
+
+                var v = context.Products.Find(Sael.ProductId);
+
+                if(v.stockquantity < Sael.AmountPurchased)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                v.stockquantity = (v.stockquantity - Sael.AmountPurchased);
+
+                //Update database            
+                context.SaveChanges();
+                
+
                 //user who made the change, old price, new price, action
                 Log("user", Sael.ProductId, Sael.AmountPurchased, "Purchased");
                 return new CreatedAtRouteResult("ProductCreated", new { id = Sael.Id }, Sael);
