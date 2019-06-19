@@ -1,0 +1,14 @@
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.csprojAssemblyReference.cache
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.csproj.CoreCompileInputs.cache
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.RazorAssemblyInfo.cache
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.RazorAssemblyInfo.cs
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.AssemblyInfoInputs.cache
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.AssemblyInfo.cs
+C:\Users\Tony\source\repos\ApiProducts\bin\Debug\netcoreapp2.2\ApiProducts.deps.json
+C:\Users\Tony\source\repos\ApiProducts\bin\Debug\netcoreapp2.2\ApiProducts.runtimeconfig.json
+C:\Users\Tony\source\repos\ApiProducts\bin\Debug\netcoreapp2.2\ApiProducts.runtimeconfig.dev.json
+C:\Users\Tony\source\repos\ApiProducts\bin\Debug\netcoreapp2.2\ApiProducts.dll
+C:\Users\Tony\source\repos\ApiProducts\bin\Debug\netcoreapp2.2\ApiProducts.pdb
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.RazorTargetAssemblyInfo.cache
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.dll
+C:\Users\Tony\source\repos\ApiProducts\obj\Debug\netcoreapp2.2\ApiProducts.pdb
