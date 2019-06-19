@@ -20,7 +20,9 @@ namespace ApiProducts.Models
         public decimal stockquantity { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal Oldstockquantity { get; set; }
-       
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal AmountPurchased { get; set; }
+
 
     }
 }

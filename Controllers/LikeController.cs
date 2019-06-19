@@ -33,15 +33,13 @@ namespace ApiProducts.Controllers
                 return BadRequest();
             }
 
-            Products pt = new Products();
-
+            var v = context.Products.Find(id);           
+            v.likes = Product.likes;            
+            
             //capture the contex for products
-            var _contex = context.Entry(pt);
+            var _contex = context.Entry(v);
 
-            _contex.Entity.likes = Product.likes;
-
-            //Update database
-            _contex.State = EntityState.Modified;
+            //Update database            
             context.SaveChanges();
             return Ok();
         }
