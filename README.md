@@ -1,10 +1,10 @@
 # ApiProducts
 
-## Visual Studio 2019 or Visual Code
-## .NET Core SDK 2.2 
-## DataBase used SqlServerExpress
+* Visual Studio 2019 or Visual Code
+* .NET Core SDK 2.2 
+* DataBase used SqlServerExpress
 
-## For Authentication used jwt token.
+* For Authentication used jwt token.
 
 -Postman files included in the postman folder:
 
@@ -16,7 +16,7 @@
 
 -To change the connection string go to the appsettings.json and modify the DefaultConnection property
 
- ## Requirements
+ ## Requirements/Postman
 The API should allow:
 * Adding/Removing products and set their stock quantity.           //Add a new product, Remove product, Delete product in postman
 * Modify the price of the products.                                //Update product in postman
@@ -30,5 +30,5 @@ The API should allow:
 * The list should have pagination functionality                    //Pagination in postman
 * Search through the products by name.                             //Pagination in postman
 
-## Security requirements
+## Security requirements/Postman
 * Add login functionality //Create and Login in postman
