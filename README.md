@@ -1,11 +1,10 @@
 # ApiProducts
 
-Visual Studio 2019 or Visual Code
-.NET Core SDK 2.2 
+#Visual Studio 2019 or Visual Code
+#.NET Core SDK 2.2 
+#DataBase used SqlServerExpress
 
-DataBase used SqlServerExpress
-
--For Authentication used jwt token.
+#For Authentication used jwt token.
 
 -Postman files included in the postman folder:
 
