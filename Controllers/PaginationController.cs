@@ -28,7 +28,6 @@ namespace ApiProducts.Controllers
         {
             ProductPagination Pagi = new ProductPagination();
 
-            //var Product = context.Products;
             List<Products> Prod = new List<Products>();
 
             if (String.IsNullOrEmpty(ProductPaginationParam.order))
@@ -58,6 +57,12 @@ namespace ApiProducts.Controllers
 
             Pagi.total = Prod.Count();
             Pagi.Products = Prod.Skip((ProductPaginationParam.pageNumber - 1) * ProductPaginationParam.pageSize).Take(ProductPaginationParam.pageSize).ToList();
+
+
+            
+            Pagi.Products.ForEach(x => x.links = "/api/Products/" + x.Id.ToString());
+            
+            
 
             if (Pagi == null)
             {

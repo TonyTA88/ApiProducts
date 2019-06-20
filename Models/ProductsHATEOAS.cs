@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiProducts.Models
 {
-    public class Products
+    public class ProductsHATEOAS
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -15,6 +15,15 @@ namespace ApiProducts.Models
         public int likes { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal price { get; set; }
-        public string links { get; set; }
+
+        public List<links> links;
+
     }
+
+    public class links
+    {
+        public string rel { set; get; }
+        public string href { set; get; }
+    }
+
 }

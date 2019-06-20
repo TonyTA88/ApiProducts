@@ -54,7 +54,7 @@ namespace ApiProducts.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post([FromBody] Products Product)
         {
             if (ModelState.IsValid)
@@ -68,6 +68,7 @@ namespace ApiProducts.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put([FromBody] Products Product, long id)
         {
             decimal OldPrice, NewPrice;
@@ -107,6 +108,7 @@ namespace ApiProducts.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(long id)
         {
             var pais = context.Products.FirstOrDefault(x => x.Id == id);

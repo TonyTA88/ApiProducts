@@ -105,7 +105,8 @@ namespace ApiProducts.Controllers
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
-                new Claim("miValor", "Lo que yo quiera"),
+                //new Claim(ClaimTypes.Name, userInfo.Email),
+                new Claim(ClaimTypes.Role, userInfo.RolName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\": \"ejemplo@hotmail.com\",\n\t\"password\":\"Facilito321#\",\n\t\"RolName\":\"Admin\"\n}"
+					"raw": "{\n\t\"email\": \"test123@hotmail.com\",\n\t\"password\":\"Facilito321#\",\n\t\"RolName\":\"Admin\"\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/Account/Create",
@@ -197,7 +197,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU5ZmQ4YWYzLTkzOGQtNDE1Zi04YTU4LWNmNDcwMjA0MDhlOCIsImV4cCI6MTU2MTAwOTYwNiwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.SFW2CGYgmQFZpsHJbpIG-9ZixoD63ABPpdpIXjB28Yo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InRlc3QxMjNAaG90bWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImp0aSI6IjlkZGYwYWIxLTE5ZjgtNGY2OC1hMjM0LWRlOGJlYzljN2YyYSIsImV4cCI6MTU2MTAxNzg4NSwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.BifvbxlXv4YS5ZXa8Uj0av_rhowQhpa21ECvYaCTOsk",
 							"type": "string"
 						}
 					]
@@ -213,7 +213,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"P30\",\n\t\"stockquantity\": 12.0,\n\t\"likes\": 0,\n\t\"price\":\"9.99\"\n}"
+					"raw": "{\n\t\"name\": \"Sumsung Galaxy S3 mini\",\n\t\"stockquantity\": 1.0,\n\t\"likes\": 3000000,\n\t\"price\":\"999999\"\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/Products/",
@@ -268,7 +268,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\": \"hola@hotmail.com\",\n\t\"password\":\"Facilito321#\"\n}"
+					"raw": "{\n\t\"email\": \"test123@hotmail.com\",\n\t\"password\":\"Facilito321#\",\n\t\"RolName\":\"Admin\"\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/Account/Login",
@@ -353,7 +353,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"pageNumber\":1,\n\t\"pageSize\":10,\n\t\"order\":\"Likes\",\n\t\"SearchParam\":\"\"\n\t\n}"
+					"raw": "{\n\t\"pageNumber\":1,\n\t\"pageSize\":10,\n\t\"order\":\"Likes\",\n\t\"SearchParam\":\"Sumsung\"\n\t\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/ProductsPagination/",
@@ -411,6 +411,39 @@
 						""
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateRol",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"RolName\": \"Admin\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44319/api/Account/CreateRol",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"Account",
+						"CreateRol"
+					]
+				},
+				"description": "Create a new rol"
 			},
 			"response": []
 		}
