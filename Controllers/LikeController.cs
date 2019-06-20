@@ -33,12 +33,12 @@ namespace ApiProducts.Controllers
                 return BadRequest();
             }
 
-            var v = context.Products.Find(id);           
-            v.likes = Product.likes;            
+            var v = context.Products.Find(id);
+            if (Product.like)
+            {
+                v.likes += 1;
+            }
             
-            //capture the contex for products
-            var _contex = context.Entry(v);
-
             //Update database            
             context.SaveChanges();
             return Ok();

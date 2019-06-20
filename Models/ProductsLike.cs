@@ -8,6 +8,6 @@ namespace ApiProducts.Models
     public class ProductsLike
     {
         public long Id { set; get; }
-        public int likes { set; get; }
+        public bool like { set; get; }
     }
 }

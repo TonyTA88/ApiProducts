@@ -13,13 +13,13 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\": \"hola@hotmail.com\",\n\t\"password\":\"Facilito321#\"\n}"
+					"raw": "{\n\t\"email\": \"ejemplo@hotmail.com\",\n\t\"password\":\"Facilito321#\",\n\t\"RolName\":\"Admin\"\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/Account/Create",
@@ -34,19 +34,19 @@
 						"Create"
 					]
 				},
-				"description": "Login"
+				"description": "Creates a user with a rol and generates the token"
 			},
 			"response": []
 		},
 		{
-			"name": "Get products by id",
+			"name": "Updates products",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU3NzViN2JkLTNmZTUtNDRkZC05ZWYyLTMzYTI0OGQ5OTZiYiIsImV4cCI6MTU2MDkyMTA5NywiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.fl8WmlhUdR2uytloCTqZjklYnuxPng-lQ7pGHxsWml8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU5ZmQ4YWYzLTkzOGQtNDE1Zi04YTU4LWNmNDcwMjA0MDhlOCIsImV4cCI6MTU2MTAwOTYwNiwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.SFW2CGYgmQFZpsHJbpIG-9ZixoD63ABPpdpIXjB28Yo",
 							"type": "string"
 						}
 					]
@@ -62,7 +62,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"Id\":1,\"name\": \"Iphone 11\", \"stockquantity\": 11.0,\"likes\": 1,price:\"40\"}"
+					"raw": "{\n\t\"Id\":1,\n\t\"name\": \"Iphone 11\", \n\t\"stockquantity\": 11.0,\n\t\"likes\": 1,\n\t\"price\":\"40\"\n\t\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/Products/1",
@@ -76,19 +76,83 @@
 						"Products",
 						"1"
 					]
-				}
+				},
+				"description": "For logged in users as admin. Use the token generate in the login."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Updates products with the given id.",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\":1,\n\t\"name\": \"Iphone 11\", \n\t\"stockquantity\": 11.0,\n\t\"likes\": 1,\n\t\"price\":\"40\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44319/api/Products/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44319",
+							"path": [
+								"api",
+								"Products",
+								"1"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer error=\"invalid_token\", error_description=\"The token is expired\""
+						},
+						{
+							"key": "X-SourceFiles",
+							"value": "=?UTF-8?B?QzpcVXNlcnNcVG9ueVxzb3VyY2VccmVwb3NcR2l0SHViXEFwaVByb2R1Y3RzXEFwaVByb2R1Y3RzXGFwaVxQcm9kdWN0c1wx?="
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Jun 2019 01:34:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
-			"name": "Get all Products",
+			"name": "Get all Products for logged in users",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU3NzViN2JkLTNmZTUtNDRkZC05ZWYyLTMzYTI0OGQ5OTZiYiIsImV4cCI6MTU2MDkyMTA5NywiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.fl8WmlhUdR2uytloCTqZjklYnuxPng-lQ7pGHxsWml8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU5ZmQ4YWYzLTkzOGQtNDE1Zi04YTU4LWNmNDcwMjA0MDhlOCIsImV4cCI6MTU2MTAwOTYwNiwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.SFW2CGYgmQFZpsHJbpIG-9ZixoD63ABPpdpIXjB28Yo",
 							"type": "string"
 						}
 					]
@@ -120,7 +184,8 @@
 						"Products",
 						""
 					]
-				}
+				},
+				"description": "For logged in users as admin. Use the token generate in the login."
 			},
 			"response": []
 		},
@@ -132,7 +197,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6ImM0NTFjMzQ0LWVjZGEtNDQ0Zi05NGIzLTJlNjA2MGY0YzY0MSIsImV4cCI6MTU2MDgyMDg2NywiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.RnhchvI_kNREJS4YZD-0z9VBybVV3sTsC9ukUOp57CU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU5ZmQ4YWYzLTkzOGQtNDE1Zi04YTU4LWNmNDcwMjA0MDhlOCIsImV4cCI6MTU2MTAwOTYwNiwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.SFW2CGYgmQFZpsHJbpIG-9ZixoD63ABPpdpIXjB28Yo",
 							"type": "string"
 						}
 					]
@@ -142,13 +207,13 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\": \"Iphone 7\", \"stockquantity\": 12.0,\"likes\": 0,price:\"9.99\"}"
+					"raw": "{\n\t\"name\": \"P30\",\n\t\"stockquantity\": 12.0,\n\t\"likes\": 0,\n\t\"price\":\"9.99\"\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/Products/",
@@ -162,12 +227,13 @@
 						"Products",
 						""
 					]
-				}
+				},
+				"description": "For logged in users as admin. Use the token generate in the login."
 			},
 			"response": []
 		},
 		{
-			"name": "Delete a product by id",
+			"name": "Remove a product by id",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -183,7 +249,8 @@
 						"Products",
 						"2"
 					]
-				}
+				},
+				"description": "For logged in users as admin. Use the token generate in the login"
 			},
 			"response": []
 		},
@@ -215,7 +282,8 @@
 						"Account",
 						"Login"
 					]
-				}
+				},
+				"description": "Generates the token for 4 hours"
 			},
 			"response": []
 		},
@@ -227,7 +295,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU3NzViN2JkLTNmZTUtNDRkZC05ZWYyLTMzYTI0OGQ5OTZiYiIsImV4cCI6MTU2MDkyMTA5NywiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.fl8WmlhUdR2uytloCTqZjklYnuxPng-lQ7pGHxsWml8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU5ZmQ4YWYzLTkzOGQtNDE1Zi04YTU4LWNmNDcwMjA0MDhlOCIsImV4cCI6MTU2MTAwOTYwNiwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.SFW2CGYgmQFZpsHJbpIG-9ZixoD63ABPpdpIXjB28Yo",
 							"type": "string"
 						}
 					]
@@ -243,7 +311,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"Id\":1,\"likes\":1000}"
+					"raw": "{\n\t\"Id\":1,\n\t\"like\":true\n\t\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44319/api/ProductsLikes/1",
@@ -256,6 +324,91 @@
 						"api",
 						"ProductsLikes",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagination",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU5ZmQ4YWYzLTkzOGQtNDE1Zi04YTU4LWNmNDcwMjA0MDhlOCIsImV4cCI6MTU2MTAwOTYwNiwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.SFW2CGYgmQFZpsHJbpIG-9ZixoD63ABPpdpIXjB28Yo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pageNumber\":1,\n\t\"pageSize\":10,\n\t\"order\":\"Likes\",\n\t\"SearchParam\":\"\"\n\t\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44319/api/ProductsPagination/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"ProductsPagination",
+						""
+					]
+				},
+				"description": "Order: you can order the product list by likes null or empty by name.\nSearchParam: null or empty all products else filtered by searchparam.\n\nAny logged in user can use this"
+			},
+			"response": []
+		},
+		{
+			"name": "Saels",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGFAaG90bWFpbC5jb20iLCJtaVZhbG9yIjoiTG8gcXVlIHlvIHF1aWVyYSIsImp0aSI6IjU5ZmQ4YWYzLTkzOGQtNDE1Zi04YTU4LWNmNDcwMjA0MDhlOCIsImV4cCI6MTU2MTAwOTYwNiwiaXNzIjoieW91cmRvbWFpbi5jb20iLCJhdWQiOiJ5b3VyZG9tYWluLmNvbSJ9.SFW2CGYgmQFZpsHJbpIG-9ZixoD63ABPpdpIXjB28Yo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ProductId\":1,\n\t\"AmountPurchased\":1\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44319/api/Saels/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"Saels",
+						""
 					]
 				}
 			},
