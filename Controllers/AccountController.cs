@@ -20,15 +20,18 @@ namespace ApiProducts.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
             IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
             this._configuration = configuration;
         }
 
@@ -40,8 +43,10 @@ namespace ApiProducts.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
+                    var result1 = await _userManager.AddToRoleAsync(user, model.RolName);
                     return BuildToken(model);
                 }
                 else
@@ -64,7 +69,7 @@ namespace ApiProducts.Controllers
             {
                 var result = await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: false, lockoutOnFailure: false);
                 if (result.Succeeded)
-                {
+                {                    
                     return BuildToken(userInfo);
                 }
                 else
@@ -76,6 +81,22 @@ namespace ApiProducts.Controllers
             else
             {
                 return BadRequest(ModelState);
+            }
+        }
+
+        [HttpPost]
+        [Route("CreateRol")]
+        public async Task createRoles([FromBody] UserRols userInfo)
+        {
+            string rolName = userInfo.RolName;
+            bool x = await _roleManager.RoleExistsAsync(rolName);
+            if (!x)
+            {
+                var role = new IdentityRole
+                {
+                    Name = rolName
+                };
+                await _roleManager.CreateAsync(role);               
             }
         }
 

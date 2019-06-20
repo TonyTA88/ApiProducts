@@ -54,6 +54,7 @@ namespace ApiProducts.Controllers
         }
 
         [HttpPost]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Post([FromBody] Products Product)
         {
             if (ModelState.IsValid)

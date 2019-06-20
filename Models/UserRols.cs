@@ -7,8 +7,7 @@ namespace ApiProducts.Models
 {
     public class UserRols
     {
-        public string Id { set; get; }
-        public string Name { set; get; }
+       public string RolName { set; get; }
 
     }
 }
